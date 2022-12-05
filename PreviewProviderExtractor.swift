@@ -22,11 +22,9 @@ enum PreviewProviderExtractor {
 }
 
 func readText(pathString: String) -> String? {
-  let dir = FileManager.default.currentDirectoryPath
-  guard let dirURL = URL(string: "file://\(dir)") else {
+  guard let fileURL = URL(string: "file://\(pathString)") else {
     return nil
   }
-  let fileURL = dirURL.appendingPathComponent(pathString)
   do {
     return try String(contentsOf: fileURL, encoding: .utf8)
   } catch {

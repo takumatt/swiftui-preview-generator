@@ -3,15 +3,12 @@ import SwiftUI
 struct ExampleView: View {
   var body: some View {
     VStack {
-      Image(systemName: "globe")
-        .imageScale(.large)
-        .foregroundColor(.accentColor)
-      Text("Hello, world!")
-      Text("Hello")
-      Text("こんにちは")
-        .foregroundColor(.red)
+      Text("\(UIDevice.current.systemVersion)")
+      
+      Capsule(style: .continuous)
+        .fill(.blue)
+        .frame(width: 200, height: 100)
     }
-    .padding()
   }
 }
 

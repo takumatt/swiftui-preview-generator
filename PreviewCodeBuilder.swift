@@ -35,7 +35,8 @@ extension UIView {
 let image = PreviewGenerator.render(view: \(previews))
 
 do {
-  try image.pngData()?.write(to: .init(fileURLWithPath: "\(outputPathString)/swiftui-preview-generator-preview-\\(Date().description).png"))
+  print("\(outputPathString)/swiftui-preview-generator-preview.png")
+  try image.pngData()?.write(to: .init(fileURLWithPath: "\(outputPathString)/swiftui-preview-generator-preview.png"))
 } catch {
   print("broken image data", error)
 }
