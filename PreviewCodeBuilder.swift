@@ -1,4 +1,4 @@
-func generateCode(previews: String) -> String {
+func generateCode(previews: String, outputPathString: String) -> String {
   return
 """
 import SwiftUI
@@ -35,7 +35,7 @@ extension UIView {
 let image = PreviewGenerator.render(view: \(previews))
 
 do {
-  try image.pngData()?.write(to: .init(fileURLWithPath: "/Users/tmatsushita/Desktop/swiftui-preview-generator-preview-\(Date().description).png"))
+  try image.pngData()?.write(to: .init(fileURLWithPath: "\(outputPathString)/swiftui-preview-generator-preview-\\(Date().description).png"))
 } catch {
   print("broken image data", error)
 }
@@ -44,9 +44,9 @@ do {
 }
 
 func main() {
-  #warning("TODO: output image path")
-  let previews = CommandLine.arguments[1]
-  print(generateCode(previews: previews))
+  let outputPathString = CommandLine.arguments[1]
+  let previews = CommandLine.arguments[2]
+  print(generateCode(previews: previews, outputPathString: outputPathString))
 }
 
 main()
