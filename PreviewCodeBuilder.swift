@@ -3,6 +3,7 @@ func generateCode(previews: String) -> String {
 """
 import SwiftUI
 import UIKit
+import Foundation
 
 enum PreviewGenerator {
   
@@ -34,7 +35,7 @@ extension UIView {
 let image = PreviewGenerator.render(view: \(previews))
 
 do {
-  try image.pngData()?.write(to: .init(fileURLWithPath: "/Users/tmatsushita/Desktop/swiftui-preview-generator-preview.png"))
+  try image.pngData()?.write(to: .init(fileURLWithPath: "/Users/tmatsushita/Desktop/swiftui-preview-generator-preview-\(Date().description).png"))
 } catch {
   print("broken image data", error)
 }
